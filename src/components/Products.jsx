@@ -53,7 +53,7 @@ const products = [
 
 export default function Products() {
   return (
-    <section id="produtos">
+    <section id="produtos" className="parallax-section" data-parallax="products-bg">
       <div className="container">
         <div className="section-header">
           <h2>

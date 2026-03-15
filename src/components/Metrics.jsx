@@ -7,7 +7,7 @@ const metrics = [
 
 export default function Metrics() {
   return (
-    <section id="metricas" className="metrics-section">
+    <section id="metricas" className="metrics-section parallax-section" data-parallax="metrics-bg">
       <div className="container">
         <div className="section-header">
           <h2>

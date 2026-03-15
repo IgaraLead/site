@@ -63,7 +63,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="recursos">
+    <section id="recursos" className="parallax-section" data-parallax="features-bg">
       <div className="container">
         <div className="section-header">
           <h2>
