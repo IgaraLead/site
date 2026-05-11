@@ -151,6 +151,7 @@ h3 { font-size: 1.25rem; }
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: inherit;
+  text-decoration: none;
 }
 
 .btn-gradient {

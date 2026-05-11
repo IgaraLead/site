@@ -7,7 +7,11 @@ const products = [
     tagline: 'Painel Unificado',
     description:
       'Painel central de toda a operação IgaraLead. Gerencie usuários, planos, créditos e acesse todas as plataformas a partir de um único lugar.',
-    features: ['Gestão de usuários e permissões', 'Controle de planos e créditos', 'Acesso centralizado às plataformas'],
+    features: [
+      'Gestão de usuários e permissões',
+      'Controle de planos e créditos',
+      'Acesso centralizado às plataformas',
+    ],
   },
   {
     emoji: '🔍',
@@ -17,7 +21,11 @@ const products = [
     tagline: 'Dados Enriquecidos',
     description:
       'Encontre e enriqueça leads com dados públicos. CNPJ, sócios, faturamento, setor e contatos — tudo em tempo real para alimentar seu pipeline.',
-    features: ['Busca por CNPJ e razão social', 'Enriquecimento automático de dados', 'Exportação para CRM integrada'],
+    features: [
+      'Busca por CNPJ e razão social',
+      'Enriquecimento automático de dados',
+      'Exportação para CRM integrada',
+    ],
   },
   {
     emoji: '📊',
@@ -27,7 +35,11 @@ const products = [
     tagline: 'CRM Completo',
     description:
       'CRM completo com pipeline visual, kanban de oportunidades e gestão de vendas. Molde funis e etapas de acordo com o seu processo comercial.',
-    features: ['Pipeline kanban de vendas', 'Gestão de oportunidades', 'Relatórios e métricas de conversão'],
+    features: [
+      'Pipeline kanban de vendas',
+      'Gestão de oportunidades',
+      'Relatórios e métricas de conversão',
+    ],
   },
   {
     emoji: '💬',
@@ -37,7 +49,11 @@ const products = [
     tagline: 'Chat Omnichannel',
     description:
       'Atendimento unificado em WhatsApp, Instagram, E-mail e chat ao vivo. Converta conversas em vendas com histórico completo e atribuição inteligente.',
-    features: ['Multi-canal unificado', 'Widget de chat ao vivo', 'Histórico completo de conversas'],
+    features: [
+      'Multi-canal unificado',
+      'Widget de chat ao vivo',
+      'Histórico completo de conversas',
+    ],
   },
   {
     emoji: '⚡',
@@ -47,7 +63,11 @@ const products = [
     tagline: 'Fluxos Inteligentes',
     description:
       'Consultoria para criação de fluxos de automação sob medida com n8n. Você recebe os resultados dos fluxos integrados ao seu ecossistema — sem complexidade técnica.',
-    features: ['Fluxos de automação personalizados', 'Integração com qualquer API', 'Resultados entregues prontos'],
+    features: [
+      'Fluxos de automação personalizados',
+      'Integração com qualquer API',
+      'Resultados entregues prontos',
+    ],
   },
 ];
 

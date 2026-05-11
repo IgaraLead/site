@@ -13,9 +13,7 @@ export default function Metrics() {
           <h2>
             Resultados que <span className="neon-text">Escalam</span>
           </h2>
-          <p>
-            Da prospecção ao atendimento pós-venda — tudo em um único ecossistema de receita.
-          </p>
+          <p>Da prospecção ao atendimento pós-venda — tudo em um único ecossistema de receita.</p>
         </div>
 
         <div className="metrics-dashboard glass">

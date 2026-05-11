@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "deploy:root": "vite build && cp dist/index.html index.html && rm -f assets/index-*.js assets/index-*.css assets/index-*.js.map && cp dist/assets/index-*.js dist/assets/index-*.css assets/",
     "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { mailtoLeadInquiry } from '../contactMailto';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,13 +26,21 @@ export default function Header() {
           </a>
 
           <nav className="header-nav">
-            <a href="#produtos" onClick={e => handleNav(e, 'produtos')}>Produtos</a>
-            <a href="#recursos" onClick={e => handleNav(e, 'recursos')}>Recursos</a>
-            <a href="#metricas" onClick={e => handleNav(e, 'metricas')}>Métricas</a>
+            <a href="#produtos" onClick={e => handleNav(e, 'produtos')}>
+              Produtos
+            </a>
+            <a href="#recursos" onClick={e => handleNav(e, 'recursos')}>
+              Recursos
+            </a>
+            <a href="#metricas" onClick={e => handleNav(e, 'metricas')}>
+              Métricas
+            </a>
           </nav>
 
           <div className="header-cta">
-            <button className="btn btn-gradient">Entre em contato</button>
+            <a href={mailtoLeadInquiry} className="btn btn-gradient">
+              Entre em contato
+            </a>
           </div>
 
           <button className="mobile-toggle" onClick={() => setMenuOpen(o => !o)}>
@@ -42,13 +51,30 @@ export default function Header() {
 
       <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
         <nav>
-          <a href="#produtos" onClick={e => handleNav(e, 'produtos')}>Produtos</a>
-          <a href="#recursos" onClick={e => handleNav(e, 'recursos')}>Recursos</a>
-          <a href="#metricas" onClick={e => handleNav(e, 'metricas')}>Métricas</a>
-          <hr style={{ border: 'none', borderTop: '1px solid rgba(70,79,99,0.5)', margin: '0.75rem 0' }} />
-          <button className="btn btn-gradient" style={{ width: '100%', justifyContent: 'center' }}>
+          <a href="#produtos" onClick={e => handleNav(e, 'produtos')}>
+            Produtos
+          </a>
+          <a href="#recursos" onClick={e => handleNav(e, 'recursos')}>
+            Recursos
+          </a>
+          <a href="#metricas" onClick={e => handleNav(e, 'metricas')}>
+            Métricas
+          </a>
+          <hr
+            style={{
+              border: 'none',
+              borderTop: '1px solid rgba(70,79,99,0.5)',
+              margin: '0.75rem 0',
+            }}
+          />
+          <a
+            href={mailtoLeadInquiry}
+            className="btn btn-gradient"
+            style={{ width: '100%', justifyContent: 'center' }}
+            onClick={() => setMenuOpen(false)}
+          >
             Entre em contato
-          </button>
+          </a>
         </nav>
       </div>
     </header>

@@ -69,7 +69,10 @@ export default function Features() {
           <h2>
             Funcionalidades que <span className="gradient-text">Resolvem Dores Reais</span>
           </h2>
-          <p>Cada recurso foi desenhado para eliminar gargalos operacionais e acelerar o ciclo de vendas.</p>
+          <p>
+            Cada recurso foi desenhado para eliminar gargalos operacionais e acelerar o ciclo de
+            vendas.
+          </p>
         </div>
 
         <div className="features-grid">

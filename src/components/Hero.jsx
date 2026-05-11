@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import { mailtoDemoRequest } from '../contactMailto';
 
 export default function Hero() {
   const canvasRef = useRef(null);
@@ -28,7 +29,7 @@ export default function Hero() {
           size: Math.random() * 1.5 + 0.5,
           speedX: Math.random() * 0.5 - 0.25,
           speedY: Math.random() * 0.5 - 0.25,
-          color: `rgba(${155 + Math.random() * 100 | 0}, ${155 + Math.random() * 100 | 0}, 255, ${(Math.random() * 0.4 + 0.1).toFixed(2)})`,
+          color: `rgba(${(155 + Math.random() * 100) | 0}, ${(155 + Math.random() * 100) | 0}, 255, ${(Math.random() * 0.4 + 0.1).toFixed(2)})`,
         });
       }
     }
@@ -44,7 +45,8 @@ export default function Hero() {
         if (p.y < 0) p.y = canvas.height;
 
         if (mouse.x !== null) {
-          const dx = mouse.x - p.x, dy = mouse.y - p.y;
+          const dx = mouse.x - p.x,
+            dy = mouse.y - p.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < mouse.radius) {
             const angle = Math.atan2(dy, dx);
@@ -84,7 +86,10 @@ export default function Hero() {
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
     };
-    const onLeave = () => { mouse.x = null; mouse.y = null; };
+    const onLeave = () => {
+      mouse.x = null;
+      mouse.y = null;
+    };
 
     resize();
     draw();
@@ -109,12 +114,23 @@ export default function Hero() {
           <span className="gradient-text">Times de Alta Performance</span>
         </h1>
         <p className="hero-desc">
-          Centralize a gestão da sua operação, enriqueça e prospecte leads, gerencie seu CRM,
-          atenda em todos os canais e automatize fluxos — tudo integrado em um ecossistema único.
+          Centralize a gestão da sua operação, enriqueça e prospecte leads, gerencie seu CRM, atenda
+          em todos os canais e automatize fluxos — tudo integrado em um ecossistema único.
         </p>
         <div className="hero-cta">
-          <button className="btn btn-gradient">Agendar Demonstração</button>
-          <button className="btn btn-ghost">Conhecer Produtos</button>
+          <a href={mailtoDemoRequest} className="btn btn-gradient">
+            Agendar Demonstração
+          </a>
+          <a
+            href="#produtos"
+            className="btn btn-ghost"
+            onClick={e => {
+              e.preventDefault();
+              document.getElementById('produtos')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            Conhecer Produtos
+          </a>
         </div>
       </div>
     </section>
