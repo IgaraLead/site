@@ -1,8 +1,8 @@
 const metrics = [
-  { value: '5', label: 'Produtos Integrados' },
-  { value: '∞', label: 'Automações Possíveis' },
-  { value: '360°', label: 'Visão do Cliente' },
-  { value: '1', label: 'Plataforma Unificada' },
+  { value: '4', label: 'Soluções comerciais' },
+  { value: '∞', label: 'Automações possíveis' },
+  { value: '360°', label: 'Gestão do relacionamento' },
+  { value: 'BR', label: 'Operação no Brasil' },
 ];
 
 export default function Metrics() {
@@ -13,7 +13,10 @@ export default function Metrics() {
           <h2>
             Resultados que <span className="neon-text">Escalam</span>
           </h2>
-          <p>Da prospecção ao atendimento pós-venda — tudo em um único ecossistema de receita.</p>
+          <p>
+            Da prospecção ao pós-venda, cada etapa pode contar com uma solução dedicada, sem
+            obrigatoriedade de uso conjunto entre produtos.
+          </p>
         </div>
 
         <div className="metrics-dashboard glass">

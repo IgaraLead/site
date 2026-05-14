@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   IgaraLead Site – Dark Glassmorphism
+   IgaraLead Site (dark glassmorphism)
    Based on the IgaraLead Design System
    ═══════════════════════════════════════════════════════════ */
 
@@ -455,7 +455,7 @@ section {
 }
 
 @media (min-width: 1200px) {
-  .products-grid { grid-template-columns: repeat(5, 1fr); }
+  .products-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 .product-card {
@@ -471,16 +471,17 @@ section {
   margin-bottom: 1rem;
 }
 
-.product-badge.hub { background: rgba(0, 112, 255, 0.2); color: hsl(213, 100%, 75%); }
 .product-badge.entity { background: rgba(34, 197, 94, 0.2); color: #86efac; }
 .product-badge.amplex { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
 .product-badge.nexus { background: rgba(124, 58, 237, 0.2); color: #c4b5fd; }
 .product-badge.automata { background: rgba(255, 51, 51, 0.2); color: #fca5a5; }
 
-.product-emoji {
-  font-size: 2rem;
+.product-icon {
+  width: 2.5rem;
+  height: 2.5rem;
   margin-bottom: 0.75rem;
   display: block;
+  color: var(--text-muted);
 }
 
 .product-card h3 {
@@ -519,10 +520,15 @@ section {
 }
 
 .product-features li::before {
-  content: '✓';
-  color: hsl(213, 100%, 75%);
-  font-weight: bold;
-  font-size: 0.75rem;
+  content: '';
+  width: 0.35rem;
+  height: 0.65rem;
+  border: solid var(--text-muted);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  margin-top: -0.1rem;
+  opacity: 0.9;
 }
 
 /* ─── Features Grid ───────────────────────────────────────── */
@@ -544,10 +550,11 @@ section {
   width: 2.5rem;
   height: 2.5rem;
   margin-bottom: 1rem;
-  opacity: 0.9;
+  opacity: 0.95;
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
+  color: var(--text-muted);
 }
 
 .feature-card h3 {
@@ -653,8 +660,8 @@ section {
 .chart-bar {
   width: 2rem;
   border-radius: 0.5rem 0.5rem 0 0;
-  background: var(--brand-gradient);
-  opacity: 0.7;
+  background: rgba(166, 172, 187, 0.45);
+  opacity: 0.95;
   animation: growUp 0.8s ease-out both;
 }
 
@@ -680,6 +687,11 @@ footer {
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
   }
+}
+
+.footer-brand > a {
+  display: inline-block;
+  line-height: 0;
 }
 
 .footer-brand .footer-logo {
@@ -780,6 +792,97 @@ footer {
 .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ─── Privacy policy page ─────────────────────────────────── */
+.privacy-main {
+  padding: 6rem 0 4rem;
+  min-height: 60vh;
+}
+
+.privacy-inner {
+  max-width: 52rem;
+}
+
+.privacy-article {
+  padding: 2.5rem 2rem;
+  color: var(--text);
+}
+
+@media (min-width: 768px) {
+  .privacy-article { padding: 3rem 3.25rem; }
+}
+
+.privacy-article h1 {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  margin-bottom: 1.5rem;
+}
+
+.privacy-article h1 + p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.privacy-article h2,
+.privacy-article h3,
+.privacy-article h4 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.privacy-article p,
+.privacy-article li {
+  color: var(--text);
+  opacity: 0.92;
+  font-size: 0.95rem;
+}
+
+.privacy-article ul {
+  margin: 0.75rem 0 1rem 1.25rem;
+}
+
+.privacy-article li {
+  margin: 0.35rem 0;
+}
+
+.privacy-article hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 2rem 0;
+}
+
+.privacy-article table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.privacy-article th,
+.privacy-article td {
+  border: 1px solid var(--border-subtle);
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.privacy-article th {
+  background: rgba(45, 49, 66, 0.35);
+  color: #fff;
+  font-weight: 600;
+}
+
+.privacy-article strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.privacy-article em {
+  color: var(--text-muted);
+  font-style: italic;
 }
 
 /* ─── Scrollbar ───────────────────────────────────────────── */

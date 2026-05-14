@@ -6,7 +6,7 @@ const features = [
       </svg>
     ),
     title: 'Multi-Canal Unificado',
-    desc: 'WhatsApp, Instagram, E-mail e Chat ao Vivo — tudo em uma única interface do Nexus.',
+    desc: 'WhatsApp, Instagram, E-mail e Chat ao Vivo em uma única interface do Nexus.',
   },
   {
     icon: (
@@ -16,7 +16,7 @@ const features = [
       </svg>
     ),
     title: 'Enriquecimento de Dados',
-    desc: 'CNPJ, sócios, faturamento, setor — consulta automática via Entity em tempo real.',
+    desc: 'CNPJ, sócios, faturamento, setor: consulta automática via Entity em tempo real.',
   },
   {
     icon: (
@@ -28,7 +28,7 @@ const features = [
       </svg>
     ),
     title: 'Pipeline Visual',
-    desc: 'Kanban de oportunidades no Amplex — arraste e acompanhe cada deal pelo funil.',
+    desc: 'Kanban de oportunidades no Amplex: arraste e acompanhe cada deal pelo funil.',
   },
   {
     icon: (
@@ -39,7 +39,7 @@ const features = [
       </svg>
     ),
     title: 'Automações Sob Medida',
-    desc: 'Fluxos n8n criados pela nossa consultoria Automata, integrados ao seu ecossistema.',
+    desc: 'Fluxos n8n criados pela nossa consultoria Automata, desenhados para o seu processo e para as ferramentas que você já usa.',
   },
   {
     icon: (
@@ -48,16 +48,18 @@ const features = [
       </svg>
     ),
     title: 'Compliance LGPD',
-    desc: 'Gestão de consentimento e tratamento de dados pessoais built-in em toda a plataforma.',
+    desc: 'Gestão de consentimento e tratamento de dados pessoais nas soluções IgaraLead, no escopo de cada produto.',
   },
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="feature-icon">
-        <path d="M13 10V3l7 9h-7v8l-9-11h7z" strokeWidth="2" strokeLinecap="round" />
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" strokeWidth="2" />
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" strokeWidth="2" />
+        <path d="M8 7h8M8 11h8M8 15h5" strokeWidth="2" />
       </svg>
     ),
-    title: 'Gestão Centralizada',
-    desc: 'Hub como painel único — usuários, planos, créditos e acesso a todas as plataformas.',
+    title: 'Documentação e suporte',
+    desc: 'Materiais e atendimento em português para tirar dúvidas e extrair valor de cada solução no seu ritmo.',
   },
 ];
 

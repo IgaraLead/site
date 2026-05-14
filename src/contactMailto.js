@@ -6,10 +6,10 @@ function mailtoWithQuery(subject, body) {
 
 /** Primeiro contato / interesse comercial (CTAs gerais "Entre em contato"). */
 export const mailtoLeadInquiry = mailtoWithQuery(
-  'Contato — IgaraLead',
+  'Contato: IgaraLead',
   `Olá,
 
-Gostaria de saber mais sobre a IgaraLead e avaliar como a plataforma pode apoiar nossa operação comercial.
+Gostaria de saber mais sobre a IgaraLead e avaliar como as soluções podem apoiar nossa operação comercial.
 
 Empresa:
 Segmento:
@@ -20,10 +20,10 @@ Atenciosamente,`
 
 /** Solicitação de demonstração agendada. */
 export const mailtoDemoRequest = mailtoWithQuery(
-  'Solicitação de demonstração — IgaraLead',
+  'Solicitação de demonstração: IgaraLead',
   `Olá,
 
-Gostaria de agendar uma demonstração da plataforma IgaraLead.
+Gostaria de agendar uma demonstração das soluções IgaraLead.
 
 Empresa:
 Melhor período para contato (manhã/tarde):

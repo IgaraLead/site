@@ -1,37 +1,69 @@
+function ProductMonoIcon({ variant }) {
+  const p = {
+    viewBox: '0 0 24 24',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 2,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    className: 'product-icon',
+    'aria-hidden': true,
+  };
+
+  switch (variant) {
+    case 'entity':
+      return (
+        <svg {...p}>
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.35-4.35" />
+        </svg>
+      );
+    case 'amplex':
+      return (
+        <svg {...p}>
+          <path d="M3 3v18h18" />
+          <path d="M7 16V9" />
+          <path d="M12 16v-5" />
+          <path d="M17 16V6" />
+        </svg>
+      );
+    case 'nexus':
+      return (
+        <svg {...p}>
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </svg>
+      );
+    case 'automata':
+      return (
+        <svg {...p}>
+          <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
 const products = [
   {
-    emoji: '🏠',
-    name: 'Hub',
-    badge: 'hub',
-    badgeLabel: 'Central de Gestão',
-    tagline: 'Painel Unificado',
-    description:
-      'Painel central de toda a operação IgaraLead. Gerencie usuários, planos, créditos e acesse todas as plataformas a partir de um único lugar.',
-    features: [
-      'Gestão de usuários e permissões',
-      'Controle de planos e créditos',
-      'Acesso centralizado às plataformas',
-    ],
-  },
-  {
-    emoji: '🔍',
+    icon: 'entity',
     name: 'Entity',
     badge: 'entity',
     badgeLabel: 'Enriquecimento & Prospecção',
     tagline: 'Dados Enriquecidos',
     description:
-      'Encontre e enriqueça leads com dados públicos. CNPJ, sócios, faturamento, setor e contatos — tudo em tempo real para alimentar seu pipeline.',
+      'Encontre e enriqueça leads com dados públicos. CNPJ, sócios, faturamento, setor e contatos em tempo real para apoiar sua prospecção.',
     features: [
       'Busca por CNPJ e razão social',
       'Enriquecimento automático de dados',
-      'Exportação para CRM integrada',
+      'Exportação dos dados para o seu fluxo de trabalho',
     ],
   },
   {
-    emoji: '📊',
+    icon: 'amplex',
     name: 'Amplex',
     badge: 'amplex',
-    badgeLabel: 'Powered by Odoo',
+    badgeLabel: 'CRM & Pipeline',
     tagline: 'CRM Completo',
     description:
       'CRM completo com pipeline visual, kanban de oportunidades e gestão de vendas. Molde funis e etapas de acordo com o seu processo comercial.',
@@ -42,7 +74,7 @@ const products = [
     ],
   },
   {
-    emoji: '💬',
+    icon: 'nexus',
     name: 'Nexus',
     badge: 'nexus',
     badgeLabel: 'Powered by Chatwoot',
@@ -56,13 +88,13 @@ const products = [
     ],
   },
   {
-    emoji: '⚡',
+    icon: 'automata',
     name: 'Automata',
     badge: 'automata',
-    badgeLabel: 'Consultoria de Automação',
+    badgeLabel: 'Powered by n8n',
     tagline: 'Fluxos Inteligentes',
     description:
-      'Consultoria para criação de fluxos de automação sob medida com n8n. Você recebe os resultados dos fluxos integrados ao seu ecossistema — sem complexidade técnica.',
+      'Consultoria para criação de fluxos de automação sob medida. Você recebe os fluxos prontos para uso nas ferramentas da sua empresa, sem complexidade técnica no dia a dia.',
     features: [
       'Fluxos de automação personalizados',
       'Integração com qualquer API',
@@ -77,11 +109,11 @@ export default function Products() {
       <div className="container">
         <div className="section-header">
           <h2>
-            O Ecossistema <span className="neon-text">IgaraLead</span>
+            Soluções <span className="neon-text">para o seu negócio</span>
           </h2>
           <p>
-            Cinco produtos integrados que cobrem todo o ciclo de receita — da prospecção ao
-            atendimento, da automação à gestão.
+            Quatro produtos distintos para etapas do ciclo de receita, da prospecção ao atendimento,
+            da automação à gestão comercial. Contrate apenas o que fizer sentido para o seu time.
           </p>
         </div>
 
@@ -89,7 +121,7 @@ export default function Products() {
           {products.map(p => (
             <div key={p.name} className="glass product-card">
               <span className={`product-badge ${p.badge}`}>{p.badgeLabel}</span>
-              <span className="product-emoji">{p.emoji}</span>
+              <ProductMonoIcon variant={p.icon} />
               <h3>{p.name}</h3>
               <p className="product-tagline">{p.tagline}</p>
               <p>{p.description}</p>

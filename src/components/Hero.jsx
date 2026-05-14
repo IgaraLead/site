@@ -110,12 +110,11 @@ export default function Hero() {
       <canvas ref={canvasRef} className="hero-particles" />
       <div className="hero-content">
         <h1>
-          A Plataforma Integrada de Receita para{' '}
-          <span className="gradient-text">Times de Alta Performance</span>
+          Soluções de Receita para <span className="gradient-text">Times de Alta Performance</span>
         </h1>
         <p className="hero-desc">
-          Centralize a gestão da sua operação, enriqueça e prospecte leads, gerencie seu CRM, atenda
-          em todos os canais e automatize fluxos — tudo integrado em um ecossistema único.
+          Enriqueça e prospecte leads, gerencie o CRM, atenda em vários canais e automatize tarefas,
+          com produtos independentes, cada um focado em uma parte do seu comercial.
         </p>
         <div className="hero-cta">
           <a href={mailtoDemoRequest} className="btn btn-gradient">

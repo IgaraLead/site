@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cp dist/index.html dist/404.html",
     "deploy:root": "vite build && cp dist/index.html index.html && rm -f assets/index-*.js assets/index-*.css assets/index-*.js.map && cp dist/assets/index-*.js dist/assets/index-*.css assets/",
     "preview": "vite preview",
     "lint": "eslint .",
@@ -15,7 +15,10 @@
   },
   "dependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.15.1",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",

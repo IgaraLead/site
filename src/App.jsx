@@ -1,21 +1,14 @@
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Products from './components/Products';
-import Features from './components/Features';
-import Metrics from './components/Metrics';
-import Footer from './components/Footer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/home-page';
+import PrivacidadePage from './pages/privacidade-page';
 
 export default function App() {
   return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <Products />
-        <Features />
-        <Metrics />
-      </main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/privacidade" element={<PrivacidadePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
