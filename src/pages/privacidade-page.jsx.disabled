@@ -8,7 +8,7 @@ import policySource from '../../privacidade.md?raw';
 export default function PrivacidadePage() {
   useEffect(() => {
     const prev = document.title;
-    document.title = 'Política de Privacidade | IgaraLead';
+    document.title = 'Política de Privacidade | Igara';
     return () => {
       document.title = prev;
     };

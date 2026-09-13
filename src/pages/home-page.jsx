@@ -1,31 +1,37 @@
 import { useEffect } from 'react';
+import { useLenis } from 'lenis/react';
+import { scrollToSection } from '../lib/smooth-scroll';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import Products from '../components/Products';
-import Features from '../components/Features';
-import Metrics from '../components/Metrics';
+import Showcase from '../components/Showcase';
+import Process from '../components/Process';
+import FinalCta from '../components/FinalCta';
+import FloatingCta from '../components/FloatingCta';
 import Footer from '../components/Footer';
 
 export default function HomePage() {
+  const lenis = useLenis();
+
   useEffect(() => {
     const id = window.location.hash.replace(/^#/, '');
     if (id) {
       requestAnimationFrame(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        scrollToSection(lenis, id);
       });
     }
-  }, []);
+  }, [lenis]);
 
   return (
     <>
       <Header />
       <main>
         <Hero />
-        <Products />
-        <Features />
-        <Metrics />
+        <Showcase />
+        <Process />
+        <FinalCta />
       </main>
       <Footer />
+      <FloatingCta />
     </>
   );
 }

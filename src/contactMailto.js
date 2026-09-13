@@ -4,30 +4,30 @@ function mailtoWithQuery(subject, body) {
   return `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
-/** Primeiro contato / interesse comercial (CTAs gerais "Entre em contato"). */
+/** Primeiro contato / interesse comercial (CTAs gerais "Falar com especialista"). */
 export const mailtoLeadInquiry = mailtoWithQuery(
-  'Contato: IgaraLead',
+  'Contato: Igara — plataforma sob medida',
   `Olá,
 
-Gostaria de saber mais sobre a IgaraLead e avaliar como as soluções podem apoiar nossa operação comercial.
+Gostaria de avaliar uma plataforma sob medida para a nossa operação.
 
 Empresa:
 Segmento:
-Principal interesse:
+Principal necessidade:
 
 Atenciosamente,`
 );
 
-/** Solicitação de demonstração agendada. */
+/** Solicitação de demonstração / proposta. */
 export const mailtoDemoRequest = mailtoWithQuery(
-  'Solicitação de demonstração: IgaraLead',
+  'Igara: quero simular minha plataforma',
   `Olá,
 
-Gostaria de agendar uma demonstração das soluções IgaraLead.
+Simulei uma plataforma no site da Igara e quero conversar sobre uma proposta.
 
 Empresa:
+Segmento:
 Melhor período para contato (manhã/tarde):
-Cidade/fuso:
 
 Atenciosamente,`
 );

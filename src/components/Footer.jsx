@@ -1,16 +1,10 @@
 import { Link } from 'react-router-dom';
 import { mailtoLeadInquiry } from '../contactMailto';
 
-const productLinks = [
-  { href: '/#produtos', label: 'Entity' },
-  { href: '/#produtos', label: 'Amplex' },
-  { href: '/#produtos', label: 'Nexus' },
-  { href: '/#produtos', label: 'Automata' },
-];
-
-const resourceLinks = [
-  { href: '/#recursos', label: 'Funcionalidades' },
-  { href: '/#metricas', label: 'Métricas' },
+const platformLinks = [
+  { href: '/#produtos', label: 'Produtos' },
+  { href: '/#como-funciona', label: 'Como funciona' },
+  { href: '/#fale-conosco', label: 'Fale conosco' },
 ];
 
 export default function Footer() {
@@ -22,18 +16,18 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <Link to="/">
-              <img src="/assets/logo_sem_fundo.svg" alt="IgaraLead" className="footer-logo" />
+              <img src="/assets/logo_sem_fundo.svg" alt="Igara" className="footer-logo" />
             </Link>
             <p>
-              Prospecção, enriquecimento de dados, CRM, atendimento omnichannel e automação:
-              soluções IgaraLead contratáveis de forma independente.
+              A Igara desenvolve e opera plataformas sob medida para empresas brasileiras. Do
+              desenho ao go-live, sem mistério.
             </p>
           </div>
 
           <div className="footer-links">
-            <h4>Produtos</h4>
+            <h3>Plataforma</h3>
             <ul>
-              {productLinks.map(l => (
+              {platformLinks.map(l => (
                 <li key={l.label}>
                   <a href={l.href}>{l.label}</a>
                 </li>
@@ -42,22 +36,8 @@ export default function Footer() {
           </div>
 
           <div className="footer-links">
-            <h4>Recursos</h4>
+            <h3>Empresa</h3>
             <ul>
-              {resourceLinks.map(l => (
-                <li key={l.label}>
-                  <a href={l.href}>{l.label}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="footer-links">
-            <h4>Empresa</h4>
-            <ul>
-              <li>
-                <Link to="/privacidade">Privacidade</Link>
-              </li>
               <li>
                 <span>Rua Pais Leme, 215</span>
               </li>
@@ -75,7 +55,10 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>© {year} IgaraLead. CNPJ 64.670.800/0001-00. Todos os direitos reservados.</p>
+          <p>
+            © {year} Igara · nome fantasia de LeadByte · CNPJ 64.670.800/0001-00. Todos os direitos
+            reservados.
+          </p>
           <div className="footer-social">
             <a
               href="https://github.com/igaralead"

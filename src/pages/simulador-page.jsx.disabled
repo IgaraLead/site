@@ -1,0 +1,26 @@
+import { useEffect } from 'react';
+import Header from '../components/Header';
+import Simulator from '../components/Simulator';
+import FloatingCta from '../components/FloatingCta';
+import Footer from '../components/Footer';
+
+export default function SimuladorPage() {
+  useEffect(() => {
+    const prev = document.title;
+    document.title = 'Simulador | Igara';
+    return () => {
+      document.title = prev;
+    };
+  }, []);
+
+  return (
+    <>
+      <Header />
+      <main>
+        <Simulator />
+      </main>
+      <Footer />
+      <FloatingCta />
+    </>
+  );
+}
