@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inter";
 @import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource/sansation/400.css";
+@import "@fontsource/sansation/700.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -148,13 +150,9 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .container {
-  max-width: 1440px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-@media (min-width: 1024px) {
-  .container { padding: 0 2rem; }
+  padding: 0 1rem;
 }
 
 /* ─── Typography ──────────────────────────────────────────── */
@@ -699,10 +697,10 @@ section {
 
 /* ─── Wordmark (Header) ───────────────────────────────────── */
 .logo-wordmark {
-  font-family: 'Inter Variable', 'Inter', sans-serif;
+  font-family: 'Sansation', 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: -0.01em;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
   color: var(--foreground);
 }
 
@@ -1851,6 +1849,10 @@ section {
   margin: 0;
 }
 
+.showcase-row.reverse {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+}
+
 .showcase-row.reverse > .showcase-frame {
   order: 2;
 }
@@ -1937,31 +1939,30 @@ section {
   }
 }
 
-/* ─── Process (connected timeline, step 05 as climax) ────── */
+/* ─── Process (horizontal timeline, single row) ──────────── */
 .process-timeline {
   list-style: none;
-  position: relative;
-  max-width: 54rem;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .process-step {
   position: relative;
-  padding: 0 0 2.25rem 3rem;
+  min-width: 0;
+  text-align: center;
 }
 
-.process-step:last-child {
-  padding-bottom: 0.25rem;
-}
-
-/* rail segment linking this node to the next (overshoots under the next node) */
+/* rail segment from this node center to the next node center (none after the last) */
 .process-step::before {
   content: '';
   position: absolute;
-  left: 0.65rem;
-  top: 1.5rem;
-  bottom: -4.5rem;
-  width: 2px;
+  top: 0.7rem;
+  left: 50%;
+  right: calc(-2rem - 50%);
+  height: 2px;
   border-radius: 2px;
   background: color-mix(in srgb, var(--primary) 30%, var(--outline-variant));
 }
@@ -1971,19 +1972,20 @@ section {
 }
 
 .process-node {
-  position: absolute;
-  left: 0;
-  top: 0.2rem;
+  display: block;
   width: 1.4rem;
   height: 1.4rem;
   border-radius: 50%;
   border: 2px solid var(--primary);
   background: var(--background);
+  margin: 0 auto 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .process-number {
   font-family: var(--font-mono);
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--primary);
   margin-bottom: 0.5rem;
@@ -1996,43 +1998,24 @@ section {
   color: var(--muted-foreground);
   font-size: 0.875rem;
   line-height: 1.6;
-  max-width: 40rem;
 }
 
-.process-step.featured {
-  background: color-mix(in srgb, var(--primary) 8%, transparent);
-  border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--border));
-  border-radius: var(--radius-lg);
-  padding: 1.25rem 1.5rem 1.25rem 3rem;
-  margin-bottom: 0.25rem;
-}
-
+/* journey's end marker: filled node, no box, no border */
 .process-step.featured .process-node {
-  left: 1.5rem;
-  top: 1.45rem;
   background: var(--primary);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1023px) {
+  .process-timeline {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: -1rem;
+    padding: 0 1rem 1rem;
+  }
   .process-step {
-    padding-left: 2.5rem;
-  }
-  .process-step::before {
-    left: 0.55rem;
-  }
-  .process-node {
-    width: 1.2rem;
-    height: 1.2rem;
-    top: 0.3rem;
-  }
-  .process-step.featured {
-    padding-left: 2.5rem;
-  }
-  .process-step.featured .process-node {
-    left: 1.3rem;
-  }
-  .process-step.featured::before {
-    left: 1.85rem;
+    min-width: min(240px, 78vw);
+    scroll-snap-align: start;
   }
 }
 

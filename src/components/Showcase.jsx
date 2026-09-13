@@ -125,12 +125,6 @@ export default function Showcase() {
             </figure>
           ))}
         </div>
-
-        <div className="showcase-cta">
-          <a href={mailtoLeadInquiry} className="btn btn-gradient">
-            Agendar reunião
-          </a>
-        </div>
       </div>
     </section>
   );

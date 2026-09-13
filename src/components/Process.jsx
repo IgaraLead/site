@@ -2,7 +2,7 @@ const STEPS = [
   {
     number: '01',
     title: 'Descoberta',
-    desc: 'Uma conversa sobre o seu processo, suas ferramentas e suas dores. Nada de palpite.',
+    desc: 'Uma conversa sobre o seu processo, suas ferramentas e suas dores.',
   },
   {
     number: '02',
@@ -12,12 +12,12 @@ const STEPS = [
   {
     number: '03',
     title: 'Montagem',
-    desc: 'Sua plataforma montada sob medida para o seu processo, no seu ritmo.',
+    desc: 'Sua plataforma montada sob medida para o seu processo.',
   },
   {
     number: '04',
     title: 'Go-live',
-    desc: 'Sua equipe treinada e usando a plataforma de verdade, com seus dados reais.',
+    desc: 'Sua equipe treinada e usando a plataforma de verdade.',
   },
   {
     number: '05',
@@ -30,7 +30,7 @@ export default function Process() {
   return (
     <section id="como-funciona" className="process-section">
       <div className="container">
-        <div className="section-header align-left">
+        <div className="section-header align-center">
           <h2>Do primeiro papo ao go-live, você sabe onde está</h2>
           <p>Um processo claro, sem letras miúdas e sem projeto que nunca termina.</p>
         </div>
