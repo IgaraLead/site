@@ -1,6 +1,7 @@
-# Builds the Vite app and publishes dist/ to the gh-pages branch.
+# Builds the Vite app and moves the ./dist contents to the root
+# of the gh-pages branch (single-commit deploy history, no third-party action).
 # In GitHub: Settings → Pages → Build and deployment → Source: Branch → gh-pages / (root).
-# Custom domain CNAME is written into gh-pages by peaceiris (matches repo CNAME).
+# The custom domain is preserved via public/CNAME, which Vite copies into dist/.
 
 name: Deploy to GitHub Pages
 
@@ -32,9 +33,14 @@ jobs:
           npm ci
           npm run build
 
-      - name: Publish dist to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          cname: igaralead.com.br
+      - name: Move dist contents to gh-pages root
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan gh-pages
+          git rm -rf .
+          cp -a dist/. .
+          rm -rf dist
+          git add -A
+          git commit -m "Deploy ${{ github.sha }}" --allow-empty
+          git push --force origin gh-pages
