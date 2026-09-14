@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import { mailtoLeadInquiry } from '../contactMailto';
 
 const platformLinks = [
-  { href: '/#produtos', label: 'Produtos' },
   { href: '/#como-funciona', label: 'Como funciona' },
+  { href: '/#produtos', label: 'Produtos' },
   { href: '/#fale-conosco', label: 'Fale conosco' },
 ];
 
@@ -11,12 +11,12 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer>
+    <footer className="dark">
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
             <Link to="/">
-              <img src="/assets/logo_sem_fundo.svg" alt="Igara" className="footer-logo" />
+              <span className="footer-wordmark">igara</span>
             </Link>
             <p>
               A Igara desenvolve e opera plataformas sob medida para empresas brasileiras. Do

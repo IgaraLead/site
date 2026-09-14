@@ -90,16 +90,16 @@ function ExampleScreen({ screen, previewDark }) {
 }
 
 export default function Showcase() {
-  const { theme } = useTheme();
-  const previewDark = theme !== 'light';
+  const { resolvedTheme } = useTheme();
+  const previewDark = resolvedTheme !== 'light';
   return (
     <section id="produtos" className="showcase-section">
       <div className="container">
         <div className="section-header">
           <h2>Veja alguns de nossos módulos</h2>
           <p>
-            Telas de exemplo montadas com dados fictícios. No simulador, entram a sua marca e as
-            suas cores. Ao contratar, entram os seus processos.
+            Telas de exemplo montadas com dados fictícios. Ao contratar, entram a sua marca, as suas
+            cores e os seus processos.
           </p>
         </div>
 

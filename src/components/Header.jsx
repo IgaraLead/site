@@ -6,8 +6,8 @@ import { scrollToSection } from '../lib/smooth-scroll';
 import { mailtoLeadInquiry } from '../contactMailto';
 
 const NAV = [
-  { id: 'produtos', label: 'Produtos' },
   { id: 'como-funciona', label: 'Como funciona' },
+  { id: 'produtos', label: 'Produtos' },
   { id: 'fale-conosco', label: 'Fale conosco' },
 ];
 
@@ -51,6 +51,31 @@ function IconMoon() {
   );
 }
 
+function IconMonitor() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="18"
+      height="18"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      aria-hidden
+    >
+      <rect x="2" y="3" width="20" height="14" rx="2" />
+      <path d="M8 21h8M12 17v4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function themeButtonMeta(theme) {
+  if (theme === 'dark')
+    return { label: 'Mudar para modo claro', title: 'Modo claro', Icon: IconSun };
+  if (theme === 'light')
+    return { label: 'Usar tema do sistema', title: 'Automático (sistema)', Icon: IconMonitor };
+  return { label: 'Mudar para modo escuro', title: 'Modo escuro', Icon: IconMoon };
+}
+
 function IconMenu() {
   return (
     <svg
@@ -89,6 +114,8 @@ export default function Header() {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
   const { theme, toggle } = useTheme();
+  const themeMeta = themeButtonMeta(theme);
+  const ThemeIcon = themeMeta.Icon;
 
   const visibleSections = useRef(new Set());
 
@@ -148,8 +175,7 @@ export default function Header() {
     <header className="site-header">
       <div className="header-content">
         <Link to="/" className="logo" onClick={() => setMenuOpen(false)}>
-          <img src="/assets/logo_sem_fundo.svg" alt="Igara" />
-          <span className="logo-wordmark">Igara</span>
+          <span className="logo-wordmark">igara</span>
         </Link>
 
         <nav className="header-nav">
@@ -173,14 +199,17 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
+          <a href={mailtoLeadInquiry} className="btn btn-gradient btn-sm">
+            Agendar reunião
+          </a>
           <button
             type="button"
             className="theme-toggle"
             onClick={toggle}
-            aria-label={theme === 'dark' ? 'Mudar para modo claro' : 'Mudar para modo escuro'}
-            title={theme === 'dark' ? 'Modo claro' : 'Modo escuro'}
+            aria-label={themeMeta.label}
+            title={themeMeta.title}
           >
-            {theme === 'dark' ? <IconSun /> : <IconMoon />}
+            <ThemeIcon />
           </button>
         </div>
 
@@ -189,9 +218,9 @@ export default function Header() {
             type="button"
             className="theme-toggle"
             onClick={toggle}
-            aria-label={theme === 'dark' ? 'Mudar para modo claro' : 'Mudar para modo escuro'}
+            aria-label={themeMeta.label}
           >
-            {theme === 'dark' ? <IconSun /> : <IconMoon />}
+            <ThemeIcon />
           </button>
           <button
             type="button"
