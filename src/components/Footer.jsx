@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <Link to="/">
-              <span className="footer-wordmark">igara</span>
+              <img src="/assets/igara-logo.svg" alt="igara" className="brand-logo" />
             </Link>
             <p>
               A Igara desenvolve e opera plataformas sob medida para empresas brasileiras. Do

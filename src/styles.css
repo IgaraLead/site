@@ -286,9 +286,9 @@ h3 { font-size: 1.25rem; }
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   height: 3.5rem;
-  padding: 0 1rem;
+  padding: 0 1.25rem;
 }
 
 .logo {
@@ -677,22 +677,23 @@ section {
   from { height: 0 !important; }
 }
 
-/* ─── Wordmark (Header) ───────────────────────────────────── */
-.logo-wordmark {
-  display: inline-block;
-  font-family: 'Sansation', 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 1.7rem;
-  line-height: 1;
-  letter-spacing: -0.01em;
-  color: var(--foreground);
-  transform: translateY(-0.5px);
+/* ─── Brand logo ──────────────────────────────────────── */
+.logo .brand-logo {
+  display: block;
+  height: 1.75rem;
+  width: auto;
+  transform: translateY(-1px);
 }
 
-@media (max-width: 640px) {
-  .logo-wordmark {
-    font-size: 1.25rem;
-  }
+:root:not(.dark) .logo .brand-logo {
+  filter: brightness(0);
+}
+
+.footer-brand .brand-logo {
+  display: block;
+  height: 2rem;
+  width: auto;
+  margin-bottom: 1.25rem;
 }
 
 /* ─── Hero (rebrand) ──────────────────────────────────────── */
@@ -2085,17 +2086,6 @@ footer {
 .footer-brand > a {
   display: inline-block;
   text-decoration: none;
-}
-
-.footer-brand .footer-wordmark {
-  display: inline-block;
-  font-family: 'Sansation', 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 1.75rem;
-  line-height: 1;
-  letter-spacing: -0.01em;
-  color: var(--foreground);
-  margin-bottom: 1rem;
 }
 
 .footer-brand p {

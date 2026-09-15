@@ -175,7 +175,7 @@ export default function Header() {
     <header className="site-header">
       <div className="header-content">
         <Link to="/" className="logo" onClick={() => setMenuOpen(false)}>
-          <span className="logo-wordmark">igara</span>
+          <img src="/assets/igara-logo.svg" alt="igara" className="brand-logo" />
         </Link>
 
         <nav className="header-nav">
