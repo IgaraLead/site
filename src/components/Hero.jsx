@@ -16,6 +16,10 @@ const DITHER_LIGHT = {
 export default function Hero() {
   const { resolvedTheme } = useTheme();
   const palette = resolvedTheme === 'light' ? DITHER_LIGHT : DITHER_DARK;
+  const prefersReducedMotion =
+    typeof window !== 'undefined' &&
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   return (
     <section id="inicio" className="hero-section">
@@ -23,8 +27,8 @@ export default function Hero() {
         <Dither
           waveColor={palette.waveColor}
           backgroundColor={palette.backgroundColor}
-          disableAnimation={false}
-          enableMouseInteraction={true}
+          disableAnimation={prefersReducedMotion}
+          enableMouseInteraction={!prefersReducedMotion}
           mouseRadius={0.3}
           colorNum={10}
           waveAmplitude={0}
@@ -45,8 +49,8 @@ export default function Hero() {
           </ShinyText>
         </h1>
         <p>
-          A Igara monta e opera plataformas de vendas e operação sob medida para empresas
-          brasileiras, no seu ritmo e sem projeto que nunca termina.
+          A Igara monta e hospeda plataformas de vendas e operação sob medida para empresas
+          brasileiras, com MVP em 2 a 6 semanas e sem mistério.
         </p>
         <div className="hero-actions">
           <a href={mailtoLeadInquiry} className="btn btn-gradient">

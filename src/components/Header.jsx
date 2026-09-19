@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useLenis } from 'lenis/react';
 import { useTheme } from '../lib/theme';
-import { scrollToSection } from '../lib/smooth-scroll';
 import { mailtoLeadInquiry } from '../contactMailto';
 
 const NAV = [
@@ -162,13 +160,10 @@ export default function Header() {
 
   const sectionHref = id => (isHome ? `#${id}` : `/#${id}`);
 
-  const lenis = useLenis();
-
-  const handleNav = (e, id) => {
+  const handleNav = id => {
     setMenuOpen(false);
     if (!isHome) return;
-    e.preventDefault();
-    scrollToSection(lenis, id);
+    document.getElementById(id)?.scrollIntoView();
   };
 
   return (
@@ -246,7 +241,7 @@ export default function Header() {
                 <a
                   key={item.label}
                   href={sectionHref(item.id)}
-                  onClick={e => handleNav(e, item.id)}
+                  onClick={() => handleNav(item.id)}
                   className={activeSection === item.id ? 'active' : undefined}
                   aria-current={activeSection === item.id ? 'true' : undefined}
                 >

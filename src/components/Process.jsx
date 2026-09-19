@@ -16,8 +16,8 @@ const STEPS = [
   },
   {
     number: '04',
-    title: 'Go-live',
-    desc: 'Sua equipe treinada e usando a plataforma de verdade.',
+    title: 'MVP',
+    desc: 'Sua equipe treinada e o MVP em uso de verdade.',
   },
   {
     number: '05',
@@ -31,8 +31,8 @@ export default function Process() {
     <section id="como-funciona" className="process-section">
       <div className="container">
         <div className="section-header align-center">
-          <h2>Do primeiro papo ao go-live, você sabe onde está</h2>
-          <p>Um processo claro, sem letras miúdas e sem projeto que nunca termina.</p>
+          <h2>Do primeiro papo ao MVP, você sabe onde está</h2>
+          <p>Um processo claro, sem letras miúdas, com escopo e preço fechados.</p>
         </div>
 
         <ol className="process-timeline">

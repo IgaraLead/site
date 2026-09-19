@@ -5,13 +5,13 @@ const INCLUDED = [
   'Atualizações e melhorias contínuas',
   'Suporte em português, do nosso time',
   'Conformidade LGPD e boas práticas de segurança',
-  'Equipe treinada no go-live',
+  'Equipe treinada no MVP',
 ];
 
 const PLANS = [
   {
     name: 'Starter',
-    price: 'R$ 1.500–2.500',
+    price: 'R$ 1.500 a 2.500',
     unit: '/mês',
     desc: 'Para começar a operar em um processo específico.',
     features: [
@@ -23,7 +23,7 @@ const PLANS = [
   },
   {
     name: 'Growth',
-    price: 'R$ 3.000–5.000',
+    price: 'R$ 3.000 a 5.000',
     unit: '/mês',
     desc: 'Vendas e operação conectadas em uma só plataforma.',
     features: ['Vendas e operação integradas', 'Usuários ilimitados', 'Suporte prioritário'],
@@ -47,16 +47,13 @@ export default function Membership() {
           <h2>
             Um só compromisso: <span className="gradient-text">sua plataforma funcionando</span>
           </h2>
-          <p>
-            Em vez de um projeto que termina e te deixa com o código na mão, você recebe uma
-            plataforma operada por nós — evoluindo todo mês.
-          </p>
+          <p>Você recebe uma plataforma operada por nós, evoluindo todo mês.</p>
         </div>
 
         <div className="metrics-grid">
           <div className="metric-card glass">
-            <div className="metric-value">2–6</div>
-            <div className="metric-label">semanas até o go-live</div>
+            <div className="metric-value">2 a 6</div>
+            <div className="metric-label">semanas até o MVP</div>
           </div>
           <div className="metric-card glass">
             <div className="metric-value">100%</div>

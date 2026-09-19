@@ -5,10 +5,10 @@ export default function FinalCta() {
     <section id="fale-conosco" className="final-cta-section">
       <div className="container">
         <div className="final-cta-card">
-          <h2>Vamos desenhar sua plataforma no seu ritmo</h2>
+          <h2>Vamos desenhar sua plataforma, sem mistério</h2>
           <p>
-            Uma conversa de descoberta para entender seu processo e montar um escopo sem custo e sem
-            compromisso, e sem projeto que nunca termina.
+            Uma conversa de descoberta para entender seu processo, com escopo e preço fechados, sem
+            custo e sem compromisso.
           </p>
           <div className="final-cta-actions">
             <a href={mailtoLeadInquiry} className="btn btn-gradient">

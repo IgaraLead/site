@@ -1,23 +1,30 @@
-import { Kanban, ChatsCircle, MagnifyingGlass } from '@phosphor-icons/react';
-import { useTheme } from '../lib/theme';
-import { mailtoLeadInquiry } from '../contactMailto';
 import {
-  DashboardView,
-  ConversationsView,
-  CnpjView,
-  deriveSimPalette,
-  deriveSimPaletteLight,
-} from './simViews';
+  ChatsCircle,
+  Kanban,
+  MagnifyingGlass,
+  Microphone,
+  PaperPlaneTilt,
+  Plus,
+} from '@phosphor-icons/react';
 
 /* ─── Product showcase ─────────────────────────────────────────
-   Static example screens reusing the shared product views to demo
-   Igara products on the home page. (The interactive simulator is
-   currently disabled: Simulator.jsx.disabled.) */
+   Bandas editoriais texto + visual honesto por módulo (sem
+   mockups de janelas). Os visuais são abstrações geométricas dos
+   dados de exemplo, não telas. */
 
-const PRIMARY = '#0A8BCC';
-const SECONDARY = '#186adc';
-const DISPLAY_NAME = 'Grupo Horizonte';
-const URL_SLUG = 'app.grupohorizonte.com.br';
+const PIPE_STAGES = [
+  { name: 'Qualificados', pct: 38 },
+  { name: 'Proposta enviada', pct: 27 },
+  { name: 'Negociação', pct: 21 },
+  { name: 'Fechamento', pct: 14 },
+];
+
+const CNPJ_ROWS = [
+  { label: 'CNPJ', value: '34.567.890/0001-12' },
+  { label: 'Situação', value: 'Ativa' },
+  { label: 'Porte', value: 'Médio' },
+  { label: 'Abertura', value: '15/03/2012' },
+];
 
 const SCREENS = [
   {
@@ -30,21 +37,19 @@ const SCREENS = [
       'Relatórios e previsão de receita',
       'Gestão do time de vendas',
     ],
-    View: DashboardView,
-    viewProps: { primary: PRIMARY, secondary: SECONDARY },
+    visual: 'pipe',
   },
   {
     id: 'conversations',
     title: 'Atendimento omnichannel',
-    desc: 'WhatsApp, Instagram, e-mail e chat do site na mesma conversa, com histórico completo.',
+    desc: 'WhatsApp, Instagram, e-mail e chat do site no mesmo painel, com histórico completo.',
     icon: <ChatsCircle size={24} aria-hidden />,
     points: [
-      'Todos os canais em uma conversa',
+      'Todos os canais no mesmo painel',
       'Histórico do cliente completo',
       'Atendimento que vende',
     ],
-    View: ConversationsView,
-    viewProps: { primary: PRIMARY },
+    visual: 'channels',
   },
   {
     id: 'cnpj',
@@ -56,74 +61,106 @@ const SCREENS = [
       'Sócios, faturamento e segmento',
       'Alimenta o seu CRM automaticamente',
     ],
-    View: CnpjView,
-    viewProps: { primary: PRIMARY },
+    visual: 'cnpj',
   },
 ];
 
-function ExampleScreen({ screen, previewDark }) {
-  const { View, viewProps } = screen;
-  const simPalette = previewDark
-    ? deriveSimPalette(PRIMARY, SECONDARY)
-    : deriveSimPaletteLight(PRIMARY, SECONDARY);
+function PipeVisual() {
   return (
-    <div
-      className="showcase-frame sim-preview"
-      style={{
-        '--sim-accent': PRIMARY,
-        '--sim-secondary': SECONDARY,
-        ...simPalette,
-        ...(previewDark ? {} : { colorScheme: 'light' }),
-      }}
-    >
-      <div className="sim-chrome">
-        <span className="sim-dot red" />
-        <span className="sim-dot amber" />
-        <span className="sim-dot green" />
-        <span className="sim-url">{URL_SLUG}</span>
-      </div>
-      <div className="showcase-viewport">
-        <View {...viewProps} />
+    <div className="mod-panel" aria-label="Exemplo de distribuição do pipeline por estágio">
+      <p className="mod-panel-title">Pipeline por estágio</p>
+      <div className="mod-pipe-list">
+        {PIPE_STAGES.map(s => (
+          <div key={s.name} className="mod-pipe-row">
+            <span className="mod-pipe-name">{s.name}</span>
+            <span className="mod-pipe-track">
+              <span className="mod-pipe-fill" style={{ width: `${s.pct}%` }} />
+            </span>
+            <span className="mod-pipe-pct">{s.pct}%</span>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
+function ChannelsVisual() {
+  return (
+    <div className="mod-panel" aria-label="Exemplo de conversa omnichannel">
+      <div className="mod-thread">
+        <p className="mod-bubble incoming">Pode enviar a proposta?</p>
+        <p className="mod-bubble outgoing">
+          Olá, Marina! Vou te enviar a proposta em alguns minutos.
+        </p>
+        <p className="mod-bubble incoming">Ok, ficamos no aguardo.</p>
+      </div>
+      <div className="mod-composer" aria-hidden>
+        <span className="mod-icon-btn" title="Anexar arquivo">
+          <Plus size={16} aria-hidden />
+        </span>
+        <span className="mod-composer-field">Escreva uma mensagem…</span>
+        <span className="mod-icon-btn" title="Mensagem de voz">
+          <Microphone size={16} aria-hidden />
+        </span>
+        <span className="mod-send">
+          <PaperPlaneTilt size={14} aria-hidden />
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function CnpjVisual() {
+  return (
+    <div className="mod-panel" aria-label="Exemplo de dados de empresa por CNPJ">
+      <p className="mod-panel-title">Grupo Horizonte</p>
+      <dl className="mod-cnpj-list">
+        {CNPJ_ROWS.map(r => (
+          <div key={r.label} className="mod-cnpj-row">
+            <dt>{r.label}</dt>
+            <dd>{r.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
+}
+
+const VISUALS = { pipe: PipeVisual, channels: ChannelsVisual, cnpj: CnpjVisual };
+
 export default function Showcase() {
-  const { resolvedTheme } = useTheme();
-  const previewDark = resolvedTheme !== 'light';
   return (
     <section id="produtos" className="showcase-section">
       <div className="container">
         <div className="section-header">
           <h2>Veja alguns de nossos módulos</h2>
           <p>
-            Telas de exemplo montadas com dados fictícios. Ao contratar, entram a sua marca, as suas
-            cores e os seus processos.
+            Exemplos do que cada módulo faz, com dados fictícios. Ao contratar, entram a sua marca,
+            as suas cores e os seus processos.
           </p>
         </div>
 
         <div className="showcase-rows">
-          {SCREENS.map((screen, i) => (
-            <figure key={screen.id} className={`showcase-row${i % 2 === 1 ? ' reverse' : ''}`}>
-              <ExampleScreen screen={screen} previewDark={previewDark} />
-              <figcaption className="showcase-caption">
-                <div className="showcase-caption-head">
-                  <div className="feature-icon">{screen.icon}</div>
-                  <h3>{screen.title}</h3>
+          {SCREENS.map((screen, i) => {
+            const Visual = VISUALS[screen.visual];
+            return (
+              <article key={screen.id} className={`showcase-row${i % 2 === 1 ? ' reverse' : ''}`}>
+                <div className="showcase-text">
+                  <div className="showcase-caption-head">
+                    <div className="feature-icon">{screen.icon}</div>
+                    <h3>{screen.title}</h3>
+                  </div>
+                  <p>{screen.desc}</p>
+                  <ul className="showcase-points">
+                    {screen.points.map(point => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
                 </div>
-                <p>{screen.desc}</p>
-                <ul className="showcase-points">
-                  {screen.points.map(point => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
-                <span className="showcase-brand">
-                  Exibido como <strong>{DISPLAY_NAME}</strong>
-                </span>
-              </figcaption>
-            </figure>
-          ))}
+                <Visual />
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

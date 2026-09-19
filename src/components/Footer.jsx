@@ -19,8 +19,8 @@ export default function Footer() {
               <img src="/assets/igara-logo.svg" alt="igara" className="brand-logo" />
             </Link>
             <p>
-              A Igara desenvolve e opera plataformas sob medida para empresas brasileiras. Do
-              desenho ao go-live, sem mistério.
+              A Igara monta e hospeda plataformas sob medida para empresas brasileiras. Do desenho
+              ao MVP, sem mistério.
             </p>
           </div>
 
